@@ -4,3 +4,9 @@
 .project
 .classpath
 Servers/
+
+# Java files
+target/
+.idea
+*.iml
+.factorypath
