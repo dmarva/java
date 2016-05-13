@@ -4,6 +4,7 @@
 .project
 .classpath
 Servers/
+.recommenders/
 
 
 # Locally stored "Eclipse launch configurations"
