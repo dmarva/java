@@ -1,0 +1,22 @@
+# Eclipse files
+.metadata/
+.settings/
+.project
+.classpath
+Servers/
+
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# OSX files
+.DS_Store
+
+# Linux. KDE directory preferences
+.directory
+
+# Java files
+target/
+.idea
+*.iml
+.factorypath

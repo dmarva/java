@@ -1,0 +1,145 @@
+server:
+  port: 10000
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: api-gateway
+
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    core-serviceRibbonCommand:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+zuul:
+  servletPath: /
+  routes:
+    task-composite:
+      path: /api/tasks/**
+      serviceId: task-composite
+      stripPrefix: false
+    authorization-service1:
+      path: /oauth/token/**
+      serviceId: authorization-service
+      stripPrefix: false
+    authorization-service2:
+      path: /logout/**
+      serviceId: authorization-service
+      stripPrefix: false
+    task-service1:
+      path: /api/groups/*/tasks/**
+      serviceId: task-core
+      stripPrefix: false
+    task-service2:
+      path: /api/groups/types/*/tasks/**
+      serviceId: task-core
+      stripPrefix: false
+    task-service3:
+      path: /api/organizations/*/tasks/**
+      serviceId: task-core
+      stripPrefix: false
+    task-service5:
+      path: /api/groups/roles/*/tasks/**
+      serviceId: task-core
+      stripPrefix: false
+    core-service1:
+      path: /api/accounts/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service2:
+      path: /api/admin/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service3:
+      path: /api/bookmarks/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service4:
+      path: /api/documents/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service5:
+      path: /api/groups/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service6:
+      path: /api/notifications/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service7:
+      path: /api/organizations/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service8:
+      path: /api/privatemessages/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service9:
+      path: /api/publications/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service10:
+      path: /api/push/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service11:
+      path: /api/search/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service12:
+      path: /api/user/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service13:
+      path: /api/users/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service14:
+      path: /api/version/**
+      serviceId: core-service
+      stripPrefix: false
+    core-service15:
+      path: /api/zlinks/**
+      serviceId: core-service
+      stripPrefix: false
+      
+multipart:
+  maxFileSize: 20MB
+  maxRequestSize: 20MB
+  
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  
