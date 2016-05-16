@@ -15,4 +15,6 @@ public interface IUserService {
 
     Page<User> getPaginatedUsersKnowingAnyLanguage(int page, int size, List<String> languages);
 
+    List<User> getUsersKnowingLanguage(String language);
+
 }
