@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<market_survey_information id="1"
+		market_survey_urn="survey_information:E21953EC-1AB2-11E6-8FE2-FEC54A0D5663"
+		information="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+	<market_survey_information id="2"
+		market_survey_urn="survey_information:0376425C-1AB3-11E6-BC42-40C64A0D5663"
+		information="Morbi sollicitudin venenatis eros at dictum." />
+	<market_survey_information id="3"
+		market_survey_urn="survey_information:284F6946-1AB3-11E6-99F1-4CC64A0D5663"
+		information="Nulla malesuada, augue nec accumsan feugiat, ante tellus pharetra ligula, a sagittis nibh est id neque." />
+	<market_survey_information id="4"
+		market_survey_urn="survey_information:2D2EB12E-1AB3-11E6-BF53-52C64A0D5663"
+		information="Fusce laoreet, ligula sed dapibus laoreet, erat lorem condimentum libero, eu accumsan augue nisl id lorem." />
+	<market_survey_information id="5"
+		market_survey_urn="survey_information:320FF360-1AB3-11E6-BB84-53C64A0D5663"
+		information="Vestibulum eleifend ornare ultricies." />
+
+	<available_market_surveys
+		available_market_urn="available_survey:6CB4B636-1AB3-11E6-8282-80C64A0D5663"
+		market_survey_information_id="1" />
+	<available_market_surveys
+		available_market_urn="available_survey:792A0A24-1AB3-11E6-A793-84C64A0D5663"
+		market_survey_information_id="2" />
+	<available_market_surveys
+		available_market_urn="available_survey:7D82A982-1AB3-11E6-B3AB-85C64A0D5663"
+		market_survey_information_id="3" />
+	<available_market_surveys
+		available_market_urn="available_survey:81ABBDDC-1AB3-11E6-AE77-86C64A0D5663"
+		market_survey_information_id="4" />
+	<available_market_surveys
+		available_market_urn="available_survey:860CD096-1AB3-11E6-9817-87C64A0D5663"
+		market_survey_information_id="5" />
+</dataset>
