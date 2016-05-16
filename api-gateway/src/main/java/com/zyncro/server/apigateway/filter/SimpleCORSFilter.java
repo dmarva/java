@@ -19,15 +19,16 @@ import org.springframework.stereotype.Component;
 public class SimpleCORSFilter implements Filter {
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+	    throws IOException, ServletException {
+	HttpServletRequest request = (HttpServletRequest) req;
+	HttpServletResponse response = (HttpServletResponse) res;
 
-        addFilters(request, response);
+	addFilters(request, response);
 
-        if (!request.getMethod().equals(HttpMethod.OPTIONS)) {
-            chain.doFilter(req, res);
-        }
+	if (!request.getMethod().equals(HttpMethod.OPTIONS)) {
+	    chain.doFilter(req, res);
+	}
     }
 
     @Override
@@ -42,29 +43,27 @@ public class SimpleCORSFilter implements Filter {
 
     public static void addFilters(HttpServletRequest request, HttpServletResponse response) {
 
-        String origin = request.getHeader(HttpHeaders.ORIGIN);
-        if (origin == null || origin.equalsIgnoreCase("null")) {
-            response.addHeader("Access-Control-Allow-Origin", "*");
-        }
-        else {
-            response.addHeader("Access-Control-Allow-Origin", origin);
-        }
+	String origin = request.getHeader(HttpHeaders.ORIGIN);
+	if (origin == null || origin.equalsIgnoreCase("null")) {
+	    response.addHeader("Access-Control-Allow-Origin", "*");
+	} else {
+	    response.addHeader("Access-Control-Allow-Origin", origin);
+	}
 
-        response.setHeader("Access-Control-Expose-Headers", "Link, X-Zyncro-Page, X-Zyncro-Size, X-Zyncro-Total-Pages, X-Zyncro-Total-Records");
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
-        response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
+	response.setHeader("Access-Control-Expose-Headers", "Link");
+	response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+	response.setHeader("Access-Control-Max-Age", "3600");
+	response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
+	response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        if (request.getMethod().equals(HttpMethod.OPTIONS)) {
-            try {
-                response.getWriter().print("OK");
-                response.getWriter().flush();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+	if (request.getMethod().equals(HttpMethod.OPTIONS)) {
+	    try {
+		response.getWriter().print("OK");
+		response.getWriter().flush();
+	    } catch (IOException e) {
+		e.printStackTrace();
+	    }
+	}
 
     }
 }
